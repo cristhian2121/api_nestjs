@@ -9,7 +9,11 @@ import { Admission, AdmissionSchema } from './schemas/admission.schema';
   imports: [
     MongooseModule.forRoot(process.env.HIS_STRING_CONNECTION),
     MongooseModule.forFeature([
-      { name: Admission.name, schema: AdmissionSchema },
+      {
+        name: Admission.name,
+        schema: AdmissionSchema,
+        collection: 'adm_admisiones',
+      },
     ]),
   ],
   controllers: [AppController],

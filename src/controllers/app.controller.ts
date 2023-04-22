@@ -12,7 +12,7 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getData(@Request() req): string {
+  getData(@Request() req) {
     const authorization = req.headers.authorization.split(' ');
     const userName = req.headers.userName;
 
