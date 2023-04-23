@@ -17,11 +17,11 @@ export class User implements IUserFactory {
   }
 
   private getUser(userName: IKindOfUser): IUserFactory | null {
-    if (userName === 'gestionenlinea') {
+    if (userName === 'gestion_his') {
       return new Gestion();
     }
 
-    if (userName === 'proveedorhis') {
+    if (userName === 'proveedor_his') {
       return new Providerhis();
     }
 

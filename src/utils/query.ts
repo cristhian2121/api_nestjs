@@ -8,16 +8,16 @@ type Tquery = {
 export const getQueryAndProjection = async (
   userName: IKindOfUser,
 ): Promise<Tquery> => {
-  if (userName === 'gestionenlinea') {
+  if (userName === 'gestion_his') {
     return Promise.resolve({
       query: { name: 'example' },
       projection: {},
     });
   }
 
-  if (userName === 'proveedorhis') {
+  if (userName === 'proveedor_his') {
     return Promise.resolve({
-      query: { name: 'example' },
+      query: { numeroAdmision: 'APR5567932' },
       projection: {},
     });
   }

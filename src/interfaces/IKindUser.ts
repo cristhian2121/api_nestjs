@@ -1,2 +1,2 @@
-export type IKindOfUser = 'gestionenlinea' | 'proveedorhis';
-export type IToken = 'PROVIDER_TOKEN' | 'GESTION_TOKEN';
+export type IKindOfUser = 'gestion_his' | 'proveedor_his';
+export type IToken = 'PROVIDER_HIS_TOKEN' | 'PROVIDER_GESTION_TOKEN';
