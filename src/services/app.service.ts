@@ -61,7 +61,6 @@ export class AppService {
     const ERP = await this.erpService.getData({
       erpNit: parseInt(this.configService.get('ERP_NIT')),
     });
-    console.log('*', parseInt(this.configService.get('ERP_NIT')), 900604350);
 
     if (!ERP) {
       throw new InternalServerErrorException(
@@ -80,7 +79,6 @@ export class AppService {
 
     // Build dates
     const contractIDs = contracts.map((_) => _._id?.toString());
-    console.log('contractIDs: ', contractIDs);
     const start = dayjs(`${startDate}T${startTime}`).toDate();
     const end = dayjs(`${endDate}T${endTime}`).toDate();
 
@@ -141,7 +139,6 @@ export class AppService {
     // get data from mongo database
     try {
       const result = await this.procedureOrderModel.aggregate(query).exec();
-      console.log('end');
       return result || [];
     } catch (error) {
       console.log('error: ', error);

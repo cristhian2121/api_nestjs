@@ -5,17 +5,17 @@ import * as dayjs from 'dayjs';
 @Injectable()
 export class DateValidationMiddleware implements NestMiddleware {
   use(req: Request, res: Response, next: NextFunction) {
-    const { startDate, endDate, startTime, endTime } = req.query;
+    const { fechaInicial, fechaFinal, horaInicial, horaFinal } = req.query;
 
-    if (!startDate || !endDate || !startTime || !endTime) {
+    if (!fechaInicial || !fechaFinal || !horaInicial || !horaFinal) {
       return res.status(400).json({
         message: 'Bad request, validate the required query parameters',
       });
     }
 
     // Validate Dates
-    const startDateDayjs = dayjs(`${startDate}T${startTime}`);
-    const endDateDayjs = dayjs(`${endDate}T${endTime}`);
+    const startDateDayjs = dayjs(`${fechaInicial}T${horaInicial}`);
+    const endDateDayjs = dayjs(`${fechaFinal}T${horaFinal}`);
     if (!startDateDayjs.isValid() || !endDateDayjs.isValid()) {
       return res.status(400).json({
         message: 'Bad request, validate the required query parameters',
@@ -30,7 +30,6 @@ export class DateValidationMiddleware implements NestMiddleware {
       });
     }
 
-    console.log('endDateDayjs.diff ', endDateDayjs.diff(startDateDayjs, 'day'));
     if (endDateDayjs.diff(startDateDayjs, 'day') > 5) {
       return res.status(400).json({
         message:

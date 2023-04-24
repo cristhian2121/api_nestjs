@@ -62,8 +62,6 @@ import { DateValidationMiddleware } from './middlewares/params.middleware';
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer
-      .apply(DateValidationMiddleware)
-      .forRoutes({ path: 'ordenes', method: RequestMethod.GET });
+    consumer.apply(DateValidationMiddleware).forRoutes('*');
   }
 }
